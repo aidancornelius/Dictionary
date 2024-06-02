@@ -1,0 +1,6 @@
+data/net.aidancornelius.Dictionary.desktop.in
+data/net.aidancornelius.Dictionary.metainfo.xml.in
+data/net.aidancornelius.Dictionary.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

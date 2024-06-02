@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dictionary
+Exec=dictionary
+Icon=net.aidancornelius.Dictionary
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+StartupNotify=true

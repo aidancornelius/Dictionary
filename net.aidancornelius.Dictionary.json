@@ -1,0 +1,103 @@
+{
+    "id": "net.aidancornelius.Dictionary",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "46",
+    "sdk": "org.gnome.Sdk",
+    "command": "dictionary",
+    "finish-args": [
+        "--share=network",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+	    "name": "python3-PyMultiDictionary",
+	    "buildsystem": "simple",
+	    "build-commands": [
+		"pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PyMultiDictionary==1.2.4\" --no-build-isolation"
+	    ],
+	    "sources": [
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/18/89/ef30ac7f6b1a4572a2ba46cd89777e2751bfc28ebe3a63c1b1ef017eb164/PyMultiDictionary-1.2.4-py3-none-any.whl",
+		    "sha256": "067641623c9706403eaaea47b149e09fdd7d1b6b093074c038ed1f23467d7b5d"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/b1/fe/e8c672695b37eecc5cbf43e1d0638d88d66ba3a44c4d321c796f4e59167f/beautifulsoup4-4.12.3-py3-none-any.whl",
+		    "sha256": "b80878c9f40111313e55da8ba20bdba06d8fa3969fc68304167741bbf9e082ed"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/51/bb/bf7aab772a159614954d84aa832c129624ba6c32faa559dfb200a534e50b/bs4-0.0.2-py2.py3-none-any.whl",
+		    "sha256": "abf8742c0805ef7f662dce4b51cca104cffe52b835238afc169142ab9b3fbccc"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/5b/11/1e78951465b4a225519b8c3ad29769c49e0d8d157a070f681d5b6d64737f/certifi-2024.6.2-py3-none-any.whl",
+		    "sha256": "ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz",
+		    "sha256": "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/e5/3e/741d8c82801c347547f8a2a06aa57dbb1992be9e948df2ea0eda2c8b79e8/idna-3.7-py3-none-any.whl",
+		    "sha256": "82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/4d/55/bc2c18489386d14cedb36f8b87c6f21d425536b1ebf3c5552e6017d28ea8/iso639_lang-2.2.3-py3-none-any.whl",
+		    "sha256": "472290a2dfccfddc7eb1bd2d1ca6b174e988093c2ccb8b74743fe190625a9c61"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl",
+		    "sha256": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/4c/f3/038b302fdfbe3be7da016777069f26ceefe11a681055ea1f7817546508e3/soupsieve-2.5-py3-none-any.whl",
+		    "sha256": "eaa337ff55a1579b6549dc679565eac1e3d000563bcb1c8ab0d0fefbc0c2cdc7"
+		},
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/a2/73/a68704750a7679d0b6d3ad7aa8d4da8e14e151ae82e6fee774e6e0d05ec8/urllib3-2.2.1-py3-none-any.whl",
+		    "sha256": "450b20ec296a467077128bff42b73080516e71b56ff59a60a02bef2232c4fa9d"
+		}
+	    ]
+	},
+        {
+            "name": "dictionary",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "file:///home/aidancornelius/Projects"
+                }
+            ]
+        }
+    ],
+    "icons": [
+        {
+            "size": 128,
+            "file": "share/icons/hicolor/scalable/apps/net.aidancornelius.Dictionary.svg"
+        }
+    ]
+}
